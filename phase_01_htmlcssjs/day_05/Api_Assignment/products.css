@@ -1,0 +1,20 @@
+
+img{
+    height: 200px;
+    width: 200px;
+}
+#container{
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    padding:20px ;
+}
+#container > div{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 20px;
+}
+
+
+/*  Callback Hell - Pyramid of*/

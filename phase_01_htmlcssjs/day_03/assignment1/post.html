@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+        }
+        img{
+            height: 300px;
+            width: 85%;
+            border-radius: 5%;
+        }
+        .btn{
+            display: flex;
+            gap: 20px;
+        }
+        button{
+            font-size: xx-large;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8IOl_0WZA0TNqwp5Ux0u0t2KnBhgNrG1z33NJlqqzxMnWUGe-qC3xd6Ns&s=10" alt="">
+        <h3>King Khan</h3>
+        <div class="btn">
+            <button id="like">👍</button>
+            <h3>Likes: <span id="likeCount">0</span></h3>
+        </div>
+        <div class="btn">
+            <button id="dislike">👎</button>
+            <h3>Dislikes: 0</h3>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var likebtn=document.querySelector("#like")
+    var count=0
+    likebtn.addEventListener("click",function(){ 
+        count++
+        var likeCount=document.querySelector("#likeCount")
+        likeCount.innerText=count
+        likeCount.style.color="green" 
+
+    })
+
+</script>
