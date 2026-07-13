@@ -16,5 +16,9 @@ img{
     padding: 20px;
 }
 
+#icon{
+    height: 40px;
+    width: 40px;
+}
 
 /*  Callback Hell - Pyramid of*/
