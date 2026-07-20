@@ -1,0 +1,33 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#cardContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+#cardContainer div{
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+#search{
+    background-color: green;
+    color: white;
+    height: 35px;
+    width: 100px;
+}
+
+img{
+    height: 200px;
+
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100%;
+            border: 1px solid red;
+            height: 500px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slider Page</h1>
+    <div id="container">
+        <img id="movie" src="">
+    </div>
+</body>
+</html>
+<script>
+    let posters=[
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfYOGKkWgznxHFvW3E8eNUL8NDeO15WojyOg0g4VXkNw&s=10",
+        "https://www.tallengestore.com/cdn/shop/products/Art_Poster_-_Sicario_-_Tallenge_Hollywood_Collection_210a9d5c-4bf2-4323-ae52-1f5104039449.jpg?v=1505078989",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtUhvSR6JUYJRm1gMmcUK5FN3RVZduj2p5hUq83zyIoH2PawMuPHAD6rI&s=10"
+    ]
+    // for i=0 ; i< poster.length
+    // dhoom -->1sec --> krish 1sec--> welcome
+    let image=document.getElementById("movie")
+    image.src=posters[0]
+    let index=0
+    setInterval(()=>{
+        index++
+        image.src=posters[index]
+    },2000)
+</script>

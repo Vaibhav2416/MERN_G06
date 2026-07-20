@@ -1,0 +1,11 @@
+{
+  "students": [
+    {
+      "name": "Aman",
+      "email": "aman@gmail.com",
+      "age": 29,
+      "id": "WJGQvuTMvAM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
