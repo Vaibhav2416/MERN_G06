@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"> -->
+     <style>
+        #Container{
+            border: 1px solid red;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #card{
+            border: 1px solid black;
+            height: 300px;
+            width: 600px;
+            border-radius: 20px;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #card input{
+            height: 40px;
+            border-radius: 10px;
+        }
+        #addBtn{
+            width: 100px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #taskContainer{
+            display: flex;
+            flex-direction: column;
+        }
+
+     </style>
+</head>
+<body>
+   <div id="Container">
+        <div id="card">
+            <div>
+                <input id="task" type="text" placeholder="Enter Todo">
+                <button id="addBtn" onclick="handleClick()">Add Todo</button>
+            </div>
+            <div id="taskContainer">
+            
+             </div>
+        </div>
+        
+   </div>
+</body>
+</html>
+<script>
+    let todos=[]
+
+    let task=document.getElementById("task")
+
+    let handleClick=()=>{
+        let item=task.value
+        console.log(item)
+        if(item=="") return false;
+        todos.push({
+            task:item, status: false   
+        })
+        render()
+    }
+    
+let taskContainer=document.getElementById("taskContainer")
+    let render=()=>{
+        // todos
+       taskContainer.innerHTML=""
+       
+       todos.forEach((el,i)=>{
+            taskContainer.innerHTML+=` 
+                <div style="display:flex">
+                <p>${todos[todos.length-1].task}</p>
+                <button onclick="handleDelete(${todos.length-1})">Delete</button>
+                </div>
+            `
+       })
+        
+    }
+let handleDelete=(id)=>{
+
+}
+    
+</script>
+

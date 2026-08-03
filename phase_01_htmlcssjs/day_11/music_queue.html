@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <style>
+        #container{
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="card" style="width: 500px;">
+            <div class="card-body">
+               <h3 style="text-align: center;">🎵 Music Queue</h3>
+               <h5 id="playing">Now Playing: None</h5>
+               <div class="input-group flex-nowrap">
+                <input type="text" id="songValue" class="form-control" placeholder="Enter Song Name" aria-label="Username" aria-describedby="addon-wrapping">
+               </div>
+                <div style="margin-top: 20px;">
+                    <button onclick="addSong()" type="button" class="btn btn-primary btn-sm">Add Song</button>
+                    <button onclick="playSong()" type="button" class="btn btn-secondary btn-sm btn-success">Play Song</button>
+                </div>
+            </div>
+            <div id="player">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let songs=[]
+    let player=document.getElementById("player")
+    let songInp=document.getElementById("songValue")
+
+    let renderSongs=()=>{
+        player.innerHTML=""
+        songs.forEach((el,index)=>{
+            player.innerHTML+=`
+            <p style="border-bottom:1px solid black">
+                ${index+1}. ${el}</p>
+            `
+        })
+    }
+    let addSong=()=>{
+        // songs=[]
+        songs.push(songInp.value)
+        renderSongs()
+    }
+    let playSong=()=>{
+        let firstSong=songs.shift()
+        let playing=document.getElementById("playing")
+        playing.innerHTML=`Now Playing: ${firstSong}`
+        renderSongs()
+    }
+</script>
