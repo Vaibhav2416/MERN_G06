@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <h1>Welcome to Product Page</h1>
+            <h3 id="username">User : </h3>
+            <button onclick="handleLogout()">Logout</button>
+        </div>
+        
+    </div>
+    <div id="falseUser">
+        
+    </div>
+</body>
+</html>
+<script>
+    // check first whether user is logged in or not
+    let check_status=sessionStorage.getItem("isLoggedIn")
+    let container=document.getElementById("container")
+    let falseUser=document.getElementById("falseUser")
+    let username=document.getElementById("username")
+    let currentuser=JSON.parse(sessionStorage.getItem("current_user"))
+    console.log(check_status)
+    if(check_status=="true"){
+        username.innerHTML=`<h3>User:${currentuser.name}</h3>`
+        container.style.display="block" // show content
+    }else{
+        container.style.display="none" // hides content
+        falseUser.innerHTML=`<h1>Please login first</h1>
+        <a href="login.html">Click here to login</a>`
+    }
+
+    let handleLogout=()=>{
+        sessionStorage.removeItem("isLoggedIn")
+        window.location.reload()
+    }
+    // api ==> fetch
+
+    // session storage ==> your data will be stored till current session
+    // means till browser or tab closes
+
+    async function fetchData(){
+        let resp=await fetch("https://dummyjson.com/products")
+        let data=await resp.json()
+        console.log(data)
+    }
+    fetchData()
+
+</script>
