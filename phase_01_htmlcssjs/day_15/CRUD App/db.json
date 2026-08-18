@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "name": "kartik",
+      "email": "kartik@gmail.com",
+      "age": "20",
+      "id": "RtNGF-5RzqE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

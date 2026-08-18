@@ -11,6 +11,10 @@
             <h1>Welcome to Product Page</h1>
             <h3 id="username">User : </h3>
             <button onclick="handleLogout()">Logout</button>
+            <a href="cart.html">Cart Page</a>
+            <div id="cards">
+
+            </div>
         </div>
         
     </div>
@@ -26,6 +30,8 @@
     let falseUser=document.getElementById("falseUser")
     let username=document.getElementById("username")
     let currentuser=JSON.parse(sessionStorage.getItem("current_user"))
+    let cards=document.getElementById("cards")
+
     console.log(check_status)
     if(check_status=="true"){
         username.innerHTML=`<h3>User:${currentuser.name}</h3>`
@@ -48,8 +54,30 @@
     async function fetchData(){
         let resp=await fetch("https://dummyjson.com/products")
         let data=await resp.json()
-        console.log(data)
+        let products=data.products
+        localStorage.setItem("products",JSON.stringify(products))
+
+        products.forEach(element => {
+            cards.innerHTML+=`
+            <h3>${element.title}</h3>
+            <img height="200px" src="${element.images[0]}">
+            <button onclick="handleCart(${element.id})">Add to Cart</button>
+            `
+        });
     }
     fetchData()
+
+    function handleCart(id){
+        // alert(`clicked ${id}`)
+        // all products will be here == filter for getting clicked
+        let all_products=JSON.parse(localStorage.getItem("products"))
+        
+        let cartItem=all_products.find((el)=>el.id==id)
+        // [{id:1,title:"Mascara"},{id:2,title:"item 2"}] == 1
+        // cartItem = {id:1,title:"Mascara"}
+        let array=JSON.parse(localStorage.getItem("cart")) || []
+        array.push(cartItem)
+        localStorage.setItem("cart",JSON.stringify(array))
+    }
 
 </script>
