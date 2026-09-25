@@ -1,6 +1,6 @@
 const express=require("express")  // imported express framework
 const fs=require("fs")
-const { json } = require("stream/consumers")
+// const { json } = require("stream/consumers")
 const app=express() // created express app here
 // get,post,put,delete,patch
 app.use(express.json()) // this is reading json-data from client
